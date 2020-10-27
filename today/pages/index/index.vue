@@ -16,6 +16,8 @@
 		<view>测试代码</view>
 		<view>测试代码</view>
 		<view>测试代码</view>
+		<view id="target">dddddddddd跟踪元素dddddddddd</view>
+		<view>测试代码</view>
 		<view>测试代码</view>
 		<view>测试代码</view>
 		<view>测试代码</view>
@@ -71,30 +73,58 @@
 			return {
 				naviBarHeight: 40,
 				statusBarHeight: 3,
-				naviBarOpacity: 1,
+				naviBarOpacity: 0,
 				screenWidth: 1,
 				show_barline: true,	
+				underTop: 0,
+				underBottom: 0
 			}
+		},
+		onReady(){
+			var that = this;
+			const query = uni.createSelectorQuery().in(this);
+			query.select('#target').boundingClientRect(data => {
+				that.underTop = data.top;
+				that.underBottom = data.bottom;
+				// console.log(that.underTop);
+				// console.log(that.underBottom);
+			}).exec();
 		},
 		onPageScroll: function(e) {
 					// 页面滚动时执行
-					console.log(e.scrollTop);
-					
-					var distance = Number(e.scrollTop + this.naviBarHeight);
+					// console.log(e.scrollTop);
+					var that = this;
+					var top = that.underTop - that.naviBarHeight;
+					var bottom = that.underBottom - that.naviBarHeight;
+					// console.log(top);
+					// console.log(bottom);
+					var distance = e.scrollTop;
+					// console.log(distance);
 					// 暂时先不引入screenWidth
-					if (distance < 200){
+					if (distance < top){
 						this.naviBarOpacity = 0;
 						this.show_barline=false;
 					}
-					else if (distance > 500){
+					else if (distance > bottom){
 						this.show_barline=true;
 						this.naviBarOpacity = 1;
 					}
 					else{
 						this.show_barline=true;
-						this.naviBarOpacity = (distance -200)/(300);
+						this.naviBarOpacity = (distance - top)/(bottom - top);
+						// console.log(this.naviBarOpacity);
 					}
 				},
 
 	}
 </script>
+
+<style>
+	#target{
+		font-size: 50px;
+		display: flex;
+		justify-content: center;
+	}
+</style>
+
+ 
