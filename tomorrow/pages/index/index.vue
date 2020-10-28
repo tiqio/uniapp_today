@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<view>
 		<view style="width: 100vw;position: fixed;top: 0;left: 0;z-index: 2;background: rgba(255, 255, 255, 0.8);-webkit-backdrop-filter: saturate(180%) blur(10px);
 						backdrop-filter: saturate(180%) blur(5px);" v-bind:style="{height:naviBarHeight+'px'}" v-if="show_barline">
@@ -11,7 +11,7 @@
 		</view>
 		<view id="target"></view>
 		<!-- :style="{margin-top: naviBarHeight+'px' -->
-		<view id="today">今日</view>
+<!-- 		<view id="today">今日</view>
 		<view>测试语句</view>
 		<view>测试语句</view>
 		<view>测试语句</view>
@@ -116,4 +116,84 @@
 	#today{
 		font-size: 50px;
 	}
-</style>
+</style> --> 
+<template>
+	<view>
+		<tomorrow :scrollTop='scroll'>今日</tomorrow>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+		<view>测试语句</view>
+	</view>
+</template>
+
+<script>
+	import tomorrow from './component_tomorrow.vue'
+	
+	export default{
+		name: 'try_area',
+		data(){
+			return {
+				underTop: 0,
+				underBottom: 0,
+				scroll: 0,
+			}
+		},
+		components: {
+			tomorrow
+		},
+		onPageScroll: function(e) {
+			var that = this;
+			console.log(e.scrollTop);
+			that.scroll = e.scrollTop;
+			console.log(that.scroll);
+	  },
+	}
+</script>

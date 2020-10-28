@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "uni-app",
-  "usingComponents": {}
+  "usingComponents": {
+    "tomorrow": "/pages/index/component_tomorrow"
+  }
 }
