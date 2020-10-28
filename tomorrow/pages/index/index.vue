@@ -119,7 +119,7 @@
 </style> --> 
 <template>
 	<view>
-		<tomorrow :scrollTop='scroll'>今日</tomorrow>
+		<tomorrow :scrollTop='scroll' @gain_params='gain'>今日</tomorrow>
 		<view>测试语句</view>
 		<view>测试语句</view>
 		<view>测试语句</view>
@@ -189,11 +189,36 @@
 		components: {
 			tomorrow
 		},
+		methods:{
+			gain(top, bottom){
+				console.log(top);
+				console.log(bottom);
+			}
+		},
 		onPageScroll: function(e) {
 			var that = this;
-			console.log(e.scrollTop);
+			// console.log(e.scrollTop);
 			that.scroll = e.scrollTop;
-			console.log(that.scroll);
+			// console.log(that.underTop);
+			// console.log(that.underBottom);
+			var top = that.underTop - that.naviBarHeight;
+			var bottom = that.underBottom - that.naviBarHeight;
+			// console.log(top);
+			// console.log(bottom);
+			var distance = that.scroll;
+			if (distance < top){
+				this.naviBarOpacity = 0;
+				this.show_barline=false;
+			}
+			else if (distance > bottom){
+				this.show_barline=true;
+				this.naviBarOpacity = 1;
+			}
+			else{
+				this.show_barline=true;
+				this.naviBarOpacity = (distance - top)/(bottom - top);
+				// console.log(this.naviBarOpacity);
+			}
 	  },
 	}
 </script>
