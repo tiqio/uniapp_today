@@ -316,9 +316,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   name: 'try_area',
   data: function data() {
     return {
-      underTop: 0,
-      underBottom: 0,
-      scroll: 0 };
+      underTop: 80,
+      underBottom: 200,
+      scroll: 0,
+      naviBarHeight: 40 };
 
   },
   components: {
@@ -338,9 +339,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     // console.log(that.underBottom);
     var top = that.underTop - that.naviBarHeight;
     var bottom = that.underBottom - that.naviBarHeight;
+    // 移植的东西只能借鉴,可以复制粘贴,但绝对不能直接用,因为不适配,有一些属性是根本无法运转的
     // console.log(top);
     // console.log(bottom);
     var distance = that.scroll;
+    console.log(distance);
+    // 在每一次操纵变量时都应该进行监视,防止出一些莫名其妙的bug
     if (distance < top) {
       this.naviBarOpacity = 0;
       this.show_barline = false;

@@ -23,8 +23,8 @@
 				statusBarHeight: 3,
 				naviBarHeight: 40,
 				show_barline: false,
-				underTop: 0,
-				underBottom: 0,
+				underTop: 1,
+				underBottom: 1,
 				naviBarOpacity: 0,
 				underTop: 0,
 				underBottom: 0
@@ -46,16 +46,17 @@
 		// }
 		// 注意:生命周期需要在各种类型下被精准的使用,不然会造成难以察觉的bug
 		mounted(){
-			var that = this;
-			const query = uni.createSelectorQuery().in(this);
-			query.select('.target').boundingClientRect(data => {
-				that.underTop = data.top;
-				console.log(that.underTop);
-			}).exec();
-			query.select('.today').boundingClientRect(data => {
-				that.underBottom = data.bottom;
-				console.log(that.underBottom);
-			}).exec();
+			// var that = this;
+			// const query = uni.createSelectorQuery().in(this);
+			// query.select('.target').boundingClientRect(data => {
+			// 	that.underTop = data.top;
+			// 	console.log(that.underTop);
+			// }).exec();
+			// query.select('.today').boundingClientRect(data => {
+			// 	that.underBottom = data.bottom;
+			// 	console.log(that.underBottom);
+			// }).exec();
+			// 是组件里不能完成query处理吗,这是一个自动化的关键
 			that.$emit('gain_params', that.underTop, that.underBottom);
 		}
 	}

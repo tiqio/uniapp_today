@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
 //
 //
 //
@@ -151,8 +151,8 @@ var _default =
       statusBarHeight: 3,
       naviBarHeight: 40,
       show_barline: false,
-      underTop: 0,
-      underBottom: 0,
+      underTop: 1,
+      underBottom: 1,
       naviBarOpacity: 0 }, _defineProperty(_ref, "underTop",
     0), _defineProperty(_ref, "underBottom",
     0), _ref;
@@ -174,19 +174,19 @@ var _default =
   // }
   // 注意:生命周期需要在各种类型下被精准的使用,不然会造成难以察觉的bug
   mounted: function mounted() {
-    var that = this;
-    var query = uni.createSelectorQuery().in(this);
-    query.select('.target').boundingClientRect(function (data) {
-      that.underTop = data.top;
-      console.log(that.underTop);
-    }).exec();
-    query.select('.today').boundingClientRect(function (data) {
-      that.underBottom = data.bottom;
-      console.log(that.underBottom);
-    }).exec();
+    // var that = this;
+    // const query = uni.createSelectorQuery().in(this);
+    // query.select('.target').boundingClientRect(data => {
+    // 	that.underTop = data.top;
+    // 	console.log(that.underTop);
+    // }).exec();
+    // query.select('.today').boundingClientRect(data => {
+    // 	that.underBottom = data.bottom;
+    // 	console.log(that.underBottom);
+    // }).exec();
+    // 是组件里不能完成query处理吗,这是一个自动化的关键
     that.$emit('gain_params', that.underTop, that.underBottom);
   } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 22 */
