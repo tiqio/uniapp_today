@@ -1,1 +1,1 @@
-<view><today class="vue-ref" vue-id="8dd740cc-1" data-ref="cpn" bind:__l="__l"></today></view>
+<view><today class="vue-ref" vue-id="8dd740cc-1" today="自定义语句" data-ref="cpn" bind:__l="__l"></today></view>
