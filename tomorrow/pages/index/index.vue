@@ -1,11 +1,11 @@
 <template>
 	<view>
-		<today ref='cpn'></today>
+		<today ref='cpn' today="自定义语句"></today>
 	</view>
 </template>
 
 <script>
-	import today from '../../components/index.vue'
+	import today from '../../components/today.vue'
 	
 	export default{
 		data(){
@@ -20,9 +20,7 @@
 			
 		},
 		onPageScroll(e){
-			var that = this;
-			that.scrollTop = e.scrollTop;
-			that.$refs.cpn.scroll(that.scrollTop);
+			this.$refs.cpn.scroll(e.scrollTop);
 		}
 		
 	}

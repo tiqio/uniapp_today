@@ -5,13 +5,13 @@
 			<view style="width: 100%;" v-bind:style="{height:statusBarHeight+'px'}"></view>
 			<view style="width: 100%;display: flex;justify-content: center;align-items: center;font-size: 40rpx;font-weight: bold;" 
 				    v-bind:style="{top:statusBarHeight+'px',height:naviBarHeight-statusBarHeight+'px',opacity:naviBarOpacity}">
-				今日
+				{{today}}
 			</view>
 			<view style="width:;100%;height: 1px; background-color: #c6c6c8;position: absolute;bottom: 0;left: 0;" ></view>
 		</view>
 		<view class="target"></view>
 		<!-- :style="{margin-top: naviBarHeight+'px' -->
-		<view class="today">今日</view>
+		<view class="today">{{today}}</view>
 		<view>测试语句</view>
 		<view>测试语句</view>
 		<view>测试语句</view>
@@ -80,6 +80,7 @@
 				scrollTop: 0
 			}
 		},
+		props:['today'],
 		mounted(){
 			var that = this;
 			const query = uni.createSelectorQuery().in(this);

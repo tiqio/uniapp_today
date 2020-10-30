@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "uni-app",
   "usingComponents": {
-    "today": "/components/index"
+    "today": "/components/today"
   }
 }
